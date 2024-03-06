@@ -4,21 +4,23 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 0, 223, 212, 1;
   --background-end-rgb: 255, 255, 255;
+  --textColor: 241, 239, 243;
+  --backgroundColor: 15, 13, 17;
+  --primaryColor: 188, 179, 200;
+  --secondaryColor: 95, 71, 70;
+  --accentColor: 168, 151, 135;
 }
 
-
-
-
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--textColor));
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      rgb(var(--backgroundColor))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--backgroundColor));
 }
 
 @layer utilities {

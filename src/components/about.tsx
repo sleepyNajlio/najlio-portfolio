@@ -11,11 +11,11 @@ return (
             <div className="h-full">
                 <Image src="/hero.png" alt="" width={300} height={100} className="size-full "/>
             </div>
-            <div className="text-center">
+            <div className="text-center flex">
                 <h1 className="text-3xl font-bold">About</h1>
                 <p className="text-lg">This is a simple Next.js app with Tailwind CSS and TypeScript.</p>
+                <CustomButton className="" />
             </div>
-            <CustomButton className="" />
             <Logo />
     </section>
     </>
