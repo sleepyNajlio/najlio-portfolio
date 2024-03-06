@@ -1,0 +1,8 @@
+# Ignore Next.js build output
+.next/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore this file as it's machine generated
+tsconfig.json
