@@ -91,7 +91,7 @@ const Navbar = () => {
     <nav className="fixed left-0 top-0 z-10 w-full p-2 bg-backgroundColor ">
       <div className="w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
         {/* SOCIAL */}
-        <div className="flex h-full md:flex gap-4 ">
+        <div className="flex h-full gap-4 ">
           <Link href="/">
             <FaGithub className="text-accentColor" />
           </Link>
@@ -100,11 +100,11 @@ const Navbar = () => {
           </Link>
         </div>
         {/* LOGO */}
-        <div className="flex md:hidden lg:flex lg:justify-center lg:w-1/2">
+        <div className=" flex justify-center basis-2/3">
           <Logo />
         </div>
         {/* LINKS */}
-        <div className="hidden gap-4 md:inline-flex md:w-1/2 lg:w-1/3 ">
+        <div className="hidden gap-4 md:flex md:w-1/2 lg:w-1/5 ">
           {links.map((link) => (
             <NavLink link={link} key={link.title} />
           ))}

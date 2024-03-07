@@ -1,19 +1,21 @@
 import cn from 'classnames';
+import Link from 'next/link';
 
-export default function CustomButton(props: any) {
+export default function CustomButton({href, className, label}: any) {
 
     return (
-            <button className={cn(`
+        <Link href={href || "/"}
+         className={cn(`
             bg-transparent
-            text-buttonColor-hover
+            text-accentColor
             p-3 rounded-xl text-center 
-            border-buttonColor-hover border-2 
-            hover:bg-buttonColor-hover
-            hover:text-buttonColor-text
-            `, props?.className)}
-            >
-                <span className="">Read More</span>
-            </button>
-        );
+            border-accentColor border-2 
+            hover:bg-accentColor
+            hover:text-backgroundColor 
+            `, className || "")}
+        >
+            <span className="">{label || "Button"}</span>
+        </Link>
+    );
 
 }
