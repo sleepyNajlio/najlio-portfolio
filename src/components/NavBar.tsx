@@ -2,20 +2,38 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import Logo from "./logo";
+import { FaGithub } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
+
+
 
 const links = [
-  { url: "/", title: "Home" },
-  { url: "/about", title: "About" },
-  { url: "/portfolio", title: "Portfolio" },
+  { url: "#about", title: "About" },
+  { url: "/project", title: "Projects" },
   { url: "/contact", title: "Contact" },
 ];
 
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setIsScrolled(isScrolled);
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      // Clean up the event listener on component unmount
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const topVariants = {
     closed: {
@@ -70,39 +88,29 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 p-2 bg-gradient-to-b from-brown-100 to-purple-100">
+    <nav className="fixed left-0 top-0 z-10 w-full p-2 bg-backgroundColor ">
       <div className="w-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
+        {/* SOCIAL */}
+        <div className="flex h-full md:flex gap-4 ">
+          <Link href="/">
+            <FaGithub className="text-accentColor" />
+          </Link>
+          <Link href="/">
+            <CiLinkedin className="text-accentColor" />
+          </Link>
+        </div>
+        {/* LOGO */}
+        <div className="flex md:hidden lg:flex lg:justify-center lg:w-1/2">
+          <Logo />
+        </div>
         {/* LINKS */}
-        <div className="hidden md:flex gap-4 w-1/3">
+        <div className="hidden gap-4 md:inline-flex md:w-1/2 lg:w-1/3 ">
           {links.map((link) => (
             <NavLink link={link} key={link.title} />
           ))}
         </div>
-        {/* LOGO */}
-        <Logo />
-        {/* SOCIAL */}
-        <div className="hidden md:flex gap-4 w-1/3">
-          <Link href="/">
-            <Image src="/github.png" alt="" width={24} height={24} />
-          </Link>
-          <Link href="/">
-            <Image src="/dribbble.png" alt="" width={24} height={24} />
-          </Link>
-          <Link href="/">
-            <Image src="/instagram.png" alt="" width={24} height={24} />
-          </Link>
-          <Link href="/">
-            <Image src="/facebook.png" alt="" width={24} height={24} />
-          </Link>
-          <Link href="/">
-            <Image src="/pinterest.png" alt="" width={24} height={24} />
-          </Link>
-          <Link href="/">
-            <Image src="/linkedin.png" alt="" width={24} height={24} />
-          </Link>
-        </div>
         {/* RESPONSIVE MENU */}
-        <div className="md:hidden">
+        <div className="md:hidden ">
           {/* MENU BUTTON */}
           <button
             className="w-10 h-8 flex flex-col justify-between z-50 relative"
@@ -111,17 +119,17 @@ const Navbar = () => {
             <motion.div
               variants={topVariants}
               animate={open ? "opened" : "closed"}
-              className="w-10 h-1 bg-primaryColor rounded origin-left"
+              className="w-10 h-1 bg-accentColor rounded origin-left"
             ></motion.div>
             <motion.div
               variants={centerVariants}
               animate={open ? "opened" : "closed"}
-              className="w-10 h-1 bg-primaryColor rounded"
+              className="w-10 h-1 bg-accentColor rounded"
             ></motion.div>
             <motion.div
               variants={bottomVariants}
               animate={open ? "opened" : "closed"}
-              className="w-10 h-1 bg-primaryColor rounded origin-left"
+              className="w-10 h-1 bg-accentColor rounded origin-left"
             ></motion.div>
           </button>
           {/* MENU LIST */}
