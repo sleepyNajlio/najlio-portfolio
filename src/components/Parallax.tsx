@@ -106,11 +106,18 @@ export default function Parallax({ baseVelocity = 100 }: ParallaxProps) {
      */
     return (
         <div className="parallax overflow-hidden m-0 whitespace-nowrap flex flex-nowrap ">
-            <motion.div className="scroller font-semibold uppercase text-6xl flex whitespace-nowrap flex-nowrap " style={{ x }}>
-                {/* <span className="block mr-8 ">{children} </span>
-                <span>{children} </span>
-                <span>{children} </span>
-                <span>{children} </span> */}
+            <motion.div className="scroller font-semibold uppercase text-6xl flex whitespace-nowrap flex-nowrap "
+                style={{ x }}
+                initial={{ opacity: 0 }}
+                animate={{
+                    opacity: 1,
+                    transition: {
+                        duration: 2,
+                        delay: 1,
+                        ease: "linear",
+                    }
+                }}
+            >
                 {[...logos, ...logos, ...logos].map((child, index) => (
                     <span key={index} className="block mr-8">
                         {child}
