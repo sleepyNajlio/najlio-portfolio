@@ -5,6 +5,8 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import CustomButton from "./CustomButton";
+import { Button } from "@nextui-org/react";
+
 
 const HeroSection = () => {
     return (
@@ -14,7 +16,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="col-span-4 place-self-center"
+                    className="col-span-4 place-self-center md:w-1/3"
                 >
                     <Image
                         src="/heroImg.png"
@@ -24,7 +26,7 @@ const HeroSection = () => {
                         style={{ borderRadius: "50%", maxWidth: "100%", height: "auto" }}
                     />
                 </motion.div>
-                <div className=" md:grid-col-1 md:place-self-center">
+                <div className=" md:grid-col-1 md:place-self-center md:w-2/3">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -64,13 +66,26 @@ const HeroSection = () => {
                             Constantly learning about new technologies, I seek perfection in everything I do. Eager for professional experiences to hone my developing skills.
                         </p>
                         <div className="flex flex-row justify-center  gap-4 sm:flex-row sm:gap-8 ">
-                            <CustomButton href="/#about" label="Contact Me" />
-                            <CustomButton href="/#projects" label="My Projects" />
+                            <Button variant="ghost" radius="md" size='lg'
+                                className=""
+                            >
+                                Resume
+                            </Button>
+                            <Button variant="light" radius="md" size='lg'
+                                className=""
+                            // className="border-backgroundColor
+                            // bg-primaryColor
+                            // text-backgroundColor
+                            // hover:text-primaryColor
+                            // hover:bg-black"
+                            >
+                                Contact me
+                            </Button>
                         </div>
                     </motion.div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

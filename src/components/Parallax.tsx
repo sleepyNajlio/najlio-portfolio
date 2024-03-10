@@ -30,29 +30,31 @@ import {
 import { TbBrandNextjs, TbBrandCpp } from 'react-icons/tb'
 import { FaReact, FaPython, FaCss3, FaHtml5, FaDocker, FaGitAlt } from 'react-icons/fa'
 
+const logoColor = "text-primaryColor"
+
 const logos = [
-    <TbBrandCpp className="text-accentColor " size={44} />,
-    <FaPython className="text-accentColor " size={44} />,
-    <SiTypescript className="text-accentColor " size={44} />,
-    <SiPhp className="text-accentColor " size={44} />,
-    <SiJavascript className="text-accentColor " size={44} />,
-    <FaHtml5 className="text-accentColor " size={44} />,
-    <FaCss3 className="text-accentColor  " size={44} />,
-    <FaReact className="text-accentColor " size={44} />,
-    <TbBrandNextjs className="text-accentColor " size={44} />,
-    <SiTailwindcss className="text-accentColor " size={44} />,
-    <SiFramer className="text-accentColor " size={44} />,
-    <SiDjango className="text-accentColor " size={44} />,
-    <SiNestjs className="text-accentColor " size={44} />,
-    <SiPostgresql className="text-accentColor " size={44} />,
-    <SiMysql className="text-accentColor " size={44} />,
-    <SiPrisma className="text-accentColor " size={44} />,
-    <SiSequelize className="text-accentColor " size={44} />,
-    <SiSqlalchemy className="text-accentColor " size={44} />,
-    <FaDocker className="text-accentColor " size={44} />,
-    <SiVercel className="text-accentColor " size={44} />,
-    <SiPostman className="text-accentColor " size={44} />,
-    <FaGitAlt className="text-accentColor " size={44} />,
+    <TbBrandCpp className={logoColor} size={44} />,
+    <FaPython className={logoColor} size={44} />,
+    <SiTypescript className={logoColor} size={44} />,
+    <SiPhp className={logoColor} size={44} />,
+    <SiJavascript className={logoColor} size={44} />,
+    <FaHtml5 className={logoColor} size={44} />,
+    <FaCss3 className={logoColor} size={44} />,
+    <FaReact className={logoColor} size={44} />,
+    <TbBrandNextjs className={logoColor} size={44} />,
+    <SiTailwindcss className={logoColor} size={44} />,
+    <SiFramer className={logoColor} size={44} />,
+    <SiDjango className={logoColor} size={44} />,
+    <SiNestjs className={logoColor} size={44} />,
+    <SiPostgresql className={logoColor} size={44} />,
+    <SiMysql className={logoColor} size={44} />,
+    <SiPrisma className={logoColor} size={44} />,
+    <SiSequelize className={logoColor} size={44} />,
+    <SiSqlalchemy className={logoColor} size={44} />,
+    <FaDocker className={logoColor} size={44} />,
+    <SiVercel className={logoColor} size={44} />,
+    <SiPostman className={logoColor} size={44} />,
+    <FaGitAlt className={logoColor} size={44} />,
 
 ]
 
@@ -114,12 +116,12 @@ export default function Parallax({ baseVelocity = 100 }: ParallaxProps) {
                     transition: {
                         duration: 2,
                         delay: 1,
-                        ease: "linear",
+                        ease: "circOut",
                     }
                 }}
             >
                 {[...logos, ...logos, ...logos].map((child, index) => (
-                    <span key={index} className="block mr-8">
+                    <span key={index} className="block mr-8 ">
                         {child}
                     </span>
                 ))}
